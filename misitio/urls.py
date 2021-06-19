@@ -21,5 +21,7 @@ app_name= 'sitio'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('sitio.urls')),
+    path('', include('sitio.urls')),
+    path('carro/', include('carro.urls')),
+    path('', include('login.urls')),
 ]

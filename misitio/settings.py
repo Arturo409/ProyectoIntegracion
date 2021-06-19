@@ -26,7 +26,7 @@ SECRET_KEY = '=ogd6k#kqwc32#q7zf--h4jsfp^)f9lpnm+$w6)vp9eqv$-j_w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['34.229.147.43','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['54.235.46.196', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -39,7 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sitio',
+    'carro',
+    'login',
+    'pwa',
+    #PACKAGES
+    'crispy_forms',
+
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -64,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'carro.context_processor.importe_total_carro',
             ],
         },
     },
@@ -79,6 +87,17 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'productos',
+        'USER': 'admin',
+        'PASSWORD': 'manuel123',
+        'HOST': 'sitio.cnizrskgoncl.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
+        'OPTIONS': {
+        'sql_mode': 'traditional',
+        }
     }
 }
 
@@ -124,4 +143,6 @@ STATICFILES_DIRS = [
         os.path.join(BASE_DIR, "static"),
         '/static/',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

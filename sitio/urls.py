@@ -8,4 +8,6 @@ urlpatterns = [
         path('', views.sitio, name= "sitio"),
         path('login',views.login, name="login"),
         path('registro',views.registro, name="registro"),
+        path('carrito',views.carrito, name="carrito"),
+
 ]

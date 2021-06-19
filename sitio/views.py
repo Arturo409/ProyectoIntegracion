@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseBadRequest
 import requests
+
 # Create your views here.
 
 def sitio(request):
-    url = 'http://52.202.109.45:8000'
-    response = requests.get('http://52.202.109.45:8000/productos/').json()
+    url = 'http://54.174.155.180:8000'
+    response = requests.get('http://54.174.155.180:8000/productos').json()
+
     return render(request, "sitio/index.html", {
         'response': response,
         'url': url
@@ -13,7 +15,10 @@ def sitio(request):
 
 
 def login(request):
-        return render(request,"sitio/login.html")
+        return render(request,"login/login.html")
 
 def registro(request):
         return render(request,"sitio/registro.html")
+
+def carrito(request):
+        return render(request, "sitio/carrito.html")
